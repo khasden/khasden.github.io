@@ -11,6 +11,9 @@
         font-family: $font-family-sans-serif;
         font-weight: $font-weight-bold;
         color: $gray-900;
+        img {
+            max-height: 70px;
+        }
     }
 
     .navbar-nav {
