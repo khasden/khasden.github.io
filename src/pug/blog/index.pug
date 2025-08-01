@@ -1,0 +1,117 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title Rooted - Story-driven content - Blog
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='../assets/favicon.ico')
+
+        // Bootstrap Icons
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css', rel='stylesheet')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700', rel='stylesheet')
+        link(href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic', rel='stylesheet', type='text/css')
+
+        // SimpleLightbox plugin CSS
+        link(href='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css', rel='stylesheet')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='../css/styles.css', rel='stylesheet')
+
+    body#page-top.bg-light
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-3.navbar-shrink
+            .container.px-4.px-lg-5
+                a.navbar-brand(href='../index.html#page-top') 
+                    img(src='../assets/img/logo-large.png', alt='Rooted')
+                button.navbar-toggler.navbar-toggler-right(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto.my-2.my-lg-0
+                        li.nav-item
+                            a.nav-link(href='../index.html#about') About
+                        li.nav-item
+                            a.nav-link(href='../index.html#services') Services
+                        li.nav-item
+                            a.nav-link(href='../index.html#portfolio') Portfolio
+                        li.nav-item
+                            a.active.nav-link(href='index.html') Blog
+                        li.nav-item
+                            a.nav-link(href='../index.html#contact') Contact
+
+        // Blog
+        - 
+            const articles = [
+                {
+                    id:`post1`,
+                    date:`August 1, 2025`,
+                    title:`The Importance of Storytelling in Content Creation`,
+                    content:
+                        `Storytelling is a powerful tool in content creation. It allows us to connect with our audience on a deeper level, making the content more relatable and memorable. In this post, we will explore how to effectively use storytelling in your content strategy.
+                        First, understand your audience. Knowing who you are writing for will help you tailor your stories to resonate with them. Use anecdotes and personal experiences to illustrate your points, making the content more engaging.
+                        Next, structure your story with a clear beginning, middle, and end. This helps maintain the reader's interest and provides a satisfying conclusion.
+                        Finally, always keep the focus on the message you want to convey. The story should enhance the content, not distract from it.
+                        By incorporating storytelling into your content, you can create a more impactful and memorable experience for your readers.`
+                }, 
+                {
+                    id:`post2`,
+                    date:`June 15, 2025`,
+                    title:`How to Create Engaging Content for Your Audience`,
+                    content:
+                        `Creating engaging content requires understanding your audience's needs and interests. Start by conducting research to identify what topics resonate with them. Use this information to craft content that is not only informative but also entertaining.
+                        Incorporate visuals such as images, videos, and infographics to break up text and make the content more visually appealing. This can help maintain the reader's attention and enhance their understanding of the topic.
+                        Additionally, encourage interaction by asking questions or prompting discussions in the comments section. This not only boosts engagement but also builds a community around your content.
+                        Remember, the key to engaging content is to provide value while keeping it interesting and relatable.
+                        By focusing on your audience's interests and preferences, you can create content that keeps them coming back for more.`
+                }, 
+                {
+                    id:`post3`,
+                    date:`February 22, 2025`,
+                    title:`The Role of SEO in Content Marketing`,
+                    content:
+                        `Search Engine Optimization (SEO) plays a crucial role in content marketing. It helps your content reach a wider audience by improving its visibility on search engines. In this post, we will discuss some essential SEO practices to enhance your content's performance.
+                        Start by conducting keyword research to identify relevant terms that your audience is searching for. Incorporate these keywords naturally into your content, including headings and subheadings, to improve its searchability.
+                        Additionally, optimize your content's meta tags, such as the title and description, to provide a clear summary of what the content is about. This not only helps with SEO but also encourages users to click through to your content.
+                        Finally, ensure that your content is mobile-friendly and loads quickly. A positive user experience is essential for retaining readers and improving your content's ranking on search engines.
+                        By implementing these SEO strategies, you can significantly increase the visibility and reach of your content.`
+                }
+            ]
+
+        section#blog.page-section.bg-primary
+            .container.px-4.px-lg-5
+                each item in articles
+                    section(id=item.id)
+                        .row.gx-4.gx-lg-5.justify-content-center
+                            .col-lg-8
+                                // Post title
+                                h2.text-white.mt-5 #{item.title}
+                                
+                                // Post meta content
+                                .text-muted.fst-italic.mb-4 Posted on #{item.date} by Kelsi Hasden
+
+                                // Post content
+                                each paragraph in item.content.split('\n')
+                                    p.text-white-75.mb-4 #{paragraph.trim()}
+                                    
+                                hr.divider.divider-light
+
+        // Footer
+        footer.bg-light.py-5
+            .container.px-4.px-lg-5
+                .small.text-center.text-muted
+                    | Copyright &copy; 2025 - Rooted
+
+        // Bootstrap core JS
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
+
+        // SimpleLightbox plugin JS
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js')
